@@ -22,8 +22,8 @@ ADD config /etc/shadowsocks
 ADD supervisor /etc/supervisor
 ADD entry.sh .
 
-WORKDIR /var/www/shadowsocks-manager/config
 
-CMD sed -i "s/\'username\'/\'$username\'/g" webui.yml.example && sed -i "s/\'password\'/\'$password\'/g" webui.yml.example && sed -i "s/\'smtp_server\'/\'$smtp_server'/g" webui.yml.example && sed -i "s/\'site_host'/\'$site_host'/g" webui.yml.example
+
+CMD sed -i "s/\'username\'/\'$username\'/g" /var/www/shadowsocks-manager/config/webui.yml.example && sed -i "s/\'password\'/\'$password\'/g" /var/www/shadowsocks-manager/config/webui.yml.example && sed -i "s/\'smtp_server\'/\'$smtp_server'/g" /var/www/shadowsocks-manager/config/webui.yml.example && sed -i "s/\'site_host'/\'$site_host'/g" /var/www/shadowsocks-manager/config/webui.yml.example
 
 ENTRYPOINT ["bash", "./entry.sh"]
